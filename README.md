@@ -7,3 +7,9 @@ Requirement:
   
 Run:
   python videoplayer.py
+  
+Instruction:
+1. with "open" button, add media file/file to playlist or load saved playlist
+2. Media Control to play/pause/stop/next/previous
+3. User can save playlist with "save PL" button
+4. By default player window isn't in fullscreen, User can make it fullscreen with "fullscreen" button or double click on media player screen.
