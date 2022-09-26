@@ -4,6 +4,7 @@ User can save playlist as well as load saved playlist
 
 Requirement:
   pip install PyQt5
+  Codec Pack(k-lite codec)
   
 Run:
   python videoplayer.py
