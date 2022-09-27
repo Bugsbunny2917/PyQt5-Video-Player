@@ -436,6 +436,20 @@ class Player(QWidget):
             self.playlist.save(QUrl().fromLocalFile(saved_playlist), "m3u")
         print("Playlist saved")
         pass
+        
+    def removeMedia(self):
+        item = self.playlist.currentIndex()
+        self.playlist.removeMedia(item)
+
+    def moveback(self):
+        item = self.playlist.currentIndex()
+        prev = self.playlist.previousIndex()
+        self.playlist.moveMedia(item,prev)
+
+    def moveforward(self):
+        item = self.playlist.currentIndex()
+        next = self.playlist.nextIndex()
+        self.playlist.moveMedia(item,next)
 
 
 if __name__ == '__main__':
