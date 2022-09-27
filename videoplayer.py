@@ -254,11 +254,18 @@ class Player(QWidget):
         self.player.stateChanged.connect(controls.setState)
 
         self.savePlaylist = QPushButton("Save PL")
+        self.remove = QPushButton("remove")
+        self.moveup = QPushButton("Move up")
+        self.movedown = QPushButton("Move down")
 
         self.savePlaylist.clicked.connect(self.save_playlist)
+        self.remove.clicked.connect(self.removeMedia)
+        self.moveup.clicked.connect(self.moveback)
+        self.movedown.clicked.connect(self.moveforward)
 
         self.fullScreenButton = QPushButton("FullScreen")
         self.fullScreenButton.setCheckable(True)
+
 
         displayLayout = QHBoxLayout()
         displayLayout.addWidget(self.videoWidget, 2)
@@ -272,6 +279,9 @@ class Player(QWidget):
         controlLayout.addStretch(1)
         controlLayout.addWidget(self.savePlaylist)
         controlLayout.addWidget(self.fullScreenButton)
+        controlLayout.addWidget(self.remove)
+        controlLayout.addWidget(self.moveup)
+        controlLayout.addWidget(self.movedown)
 
         layout = QVBoxLayout()
         layout.addLayout(displayLayout)
@@ -434,9 +444,8 @@ class Player(QWidget):
         if success:
             saved_playlist = "{}.m3u" .format(playlist)
             self.playlist.save(QUrl().fromLocalFile(saved_playlist), "m3u")
-        print("Playlist saved")
         pass
-        
+
     def removeMedia(self):
         item = self.playlist.currentIndex()
         self.playlist.removeMedia(item)
